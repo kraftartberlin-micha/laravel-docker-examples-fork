@@ -1,9 +1,5 @@
 init:
 	docker compose -f compose.dev.yaml down
-# Hint: adjust the UID and GID variables in the .env file to match your user ID and group ID.
-# You can find these by running id -u and id -g in the terminal.
-	mv .env .env.backup
-	cp .env.example .env
 	docker compose -f compose.dev.yaml build --no-cache
 	docker compose -f compose.dev.yaml up -d
 	docker compose -f compose.dev.yaml exec workspace php artisan cache:clear
@@ -11,9 +7,6 @@ init:
 	docker compose -f compose.dev.yaml exec workspace php artisan config:cache
 	docker compose -f compose.dev.yaml exec workspace php artisan migrate
 	docker compose -f compose.dev.yaml up -d # restarting for changed env settings
-	# manual steps:
-		# docker compose -f compose.dev.yaml exec workspace bash
-		# composer install && npm install && npm run dev
 
 bash:
 	docker compose -f compose.dev.yaml exec workspace bash

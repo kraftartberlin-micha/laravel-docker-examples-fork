@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/', static function () {
     Log::info('Welcome page visited');
     return view('welcome');
 });
 
-Route::get('/info', function () {
+/*Route::get('/info', function () {
     Log::info('Phpinfo page visited');
     return phpinfo();
-});
+});*/
 
-Route::get('/health', function () {
+/*Route::get('/health', function () {
     $status = [];
 
     // Check Database Connection
@@ -62,4 +64,4 @@ Route::get('/health', function () {
     $httpStatus = $isHealthy ? 200 : 503;
 
     return response()->json($status, $httpStatus);
-});
+});*/

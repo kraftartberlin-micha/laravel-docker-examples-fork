@@ -25,3 +25,21 @@ http://localhost/
 
 ### Hint
 If you see 502 Error, just wait for full startup
+
+# Dev
+## dumping variables
+### dump
+```
+dump($var);
+```
+### dump and die
+```
+dd($var);
+```
+## route handling
+routes are used in/after bootstrapping and preparing services.
+
+you can define route with views, controllers/actions or closures
+
+### list all routes
+```make routelist```

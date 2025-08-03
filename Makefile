@@ -10,3 +10,6 @@ init:
 
 bash:
 	docker compose -f compose.dev.yaml exec workspace bash
+
+routelist:
+	docker compose -f compose.dev.yaml exec workspace php artisan route:list --except-vendor

@@ -2,6 +2,7 @@ init:
 	docker compose -f compose.dev.yaml down
 # Hint: adjust the UID and GID variables in the .env file to match your user ID and group ID.
 # You can find these by running id -u and id -g in the terminal.
+	mv .env .env.backup
 	mv .env.example .env
 	docker compose -f compose.dev.yaml build --no-cache
 	docker compose -f compose.dev.yaml up -d

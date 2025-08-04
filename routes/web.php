@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShowCarController;
 use Illuminate\Support\Facades\Route;
 
 // use names for routes
@@ -115,3 +118,19 @@ Route::fallback(static function () {
 
     return response()->json($status, $httpStatus);
 });*/
+
+// single action:
+// Route::get('/car', [CarController::class, 'index']);
+
+// multiple actions:
+Route::controller(CarController::class)->group(function () {
+    Route::get('/car', 'index');
+    Route::get('/my-car', 'myCars');
+});
+
+Route::get('/show-car', ShowCarController::class);
+
+Route::resource('/products', ProductController::class);
+// Route::apiResource('/products', ProductController::class);
+// ->except(['show'])
+// ->only(['show'])

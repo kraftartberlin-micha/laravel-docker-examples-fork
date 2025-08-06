@@ -43,3 +43,9 @@ you can define route with views, controllers/actions or closures
 
 ### list all routes
 ```make routelist```
+
+
+thanks to
+
+The Codeholic - laravel 12 course
+https://www.youtube.com/watch?v=0M84Nk7iWkA

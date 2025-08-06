@@ -1,6 +1,6 @@
 @props(['imageSrc', 'city', 'name', 'price', 'badge1', 'badge2'])
 <div class="car-item card">
-    <a href="/view.html">
+    <a href="{{ route('car.show', 1) }}">
         <img
             src="{{ $imageSrc }}"
             alt=""

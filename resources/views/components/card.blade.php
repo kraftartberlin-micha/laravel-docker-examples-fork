@@ -1,15 +1,15 @@
-@props(['imageSrc', 'city', 'name', 'price', 'badge1', 'badge2'])
+@props(['car'])
 <div class="car-item card">
-    <a href="{{ route('car.show', 1) }}">
+    <a href="{{ route('car.show', $car) }}">
         <img
-            src="{{ $imageSrc }}"
+            src="{{ $car->primaryImage->image_path }}"
             alt=""
             class="car-item-img rounded-t"
         />
     </a>
     <div class="p-medium">
         <div class="flex items-center justify-between">
-            <small class="m-0 text-muted">{{ $city }}</small>
+            <small class="m-0 text-muted">{{ $car->city->name }}</small>
             <button class="btn-heart">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -27,12 +27,13 @@
                 </svg>
             </button>
         </div>
-        <h2 class="car-item-title">{{ $name }}</h2>
-        <p class="car-item-price">{{ $price }}</p>
+        <h2 class="car-item-title">{{ $car->year }} - {{ $car->model->name }}</h2>
+        <h2 class="car-item-title">{{ $car->year }} - {{ $car->owner->name }} </h2>
+        <p class="car-item-price">{{ $car->price }}</p>
         <hr/>
         <p class="m-0">
-            <span class="car-item-badge">{{ $badge1 }}</span>
-            <span class="car-item-badge">{{ $badge2 }}</span>
+            <span class="car-item-badge">{{ $car->carType->name }}</span>
+            <span class="car-item-badge">{{ $car->fuelType->name }}</span>
         </p>
     </div>
 </div>

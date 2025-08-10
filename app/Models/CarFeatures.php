@@ -3,11 +3,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CarFeatures extends Model
 {
+    use HasFactory;
     public $timestamps = false;
 
     protected $primaryKey = 'car_id';
@@ -21,7 +23,7 @@ class CarFeatures extends Model
         'bluetooth_connectivity',
         'remote_start',
         'gps_navigation',
-        'heater_seats',
+        'heaters_seats',
         'climate_control',
         'rear_parking_sensors',
         'leather_seats',

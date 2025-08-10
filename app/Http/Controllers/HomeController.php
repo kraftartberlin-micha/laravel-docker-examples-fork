@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\Car;
@@ -9,7 +11,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $cars = Car::all();
-        return View::make('home.index');
+        $cars = Car::where('published_at', '<', now())
+            ->orderBy('published_at', 'desc')
+            ->limit(30)
+            ->get();
+        return View::make('home.index', ['cars' => $cars]);
     }
 }

@@ -32,6 +32,8 @@ cache_clear:
 
 migrate:
 	docker compose -f compose.dev.yaml exec workspace php artisan migrate
+fresh-seed:
+	docker compose -f compose.dev.yaml exec workspace php artisan migrate:fresh --seed
 
 routelist:
 	docker compose -f compose.dev.yaml exec workspace php artisan route:list --except-vendor

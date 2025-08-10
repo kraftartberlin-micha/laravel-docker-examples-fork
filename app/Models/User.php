@@ -50,13 +50,13 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
+            'email_verified_at' => 'date',
             'password' => 'hashed',
         ];
     }
     public function favCars(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'car_favs', 'car_id', 'user_id');
+        return $this->belongsToMany(User::class, 'car_favs', 'user_id', 'car_id');
     }
     public function cars(): HasMany
     {

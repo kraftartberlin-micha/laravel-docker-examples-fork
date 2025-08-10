@@ -8,7 +8,7 @@
                 <div class="container">
                     <div class="slide-content">
                         <h1 class="hero-slider-title">
-                            Buy <strong>The Best Cars</strong> <br />
+                            Buy <strong>The Best Cars</strong> <br/>
                             in your region
                         </h1>
                         <div class="hero-slider-content">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="slide-image">
-                        <img src="/img/car-png-39071.png" alt="" class="img-responsive" />
+                        <img src="/img/car-png-39071.png" alt="" class="img-responsive"/>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="flex container">
                     <div class="slide-content">
                         <h2 class="hero-slider-title">
-                            Do you want to <br />
+                            Do you want to <br/>
                             <strong>sell your car?</strong>
                         </h2>
                         <div class="hero-slider-content">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="slide-image">
-                        <img src="/img/car-png-39071.png" alt="" class="img-responsive" />
+                        <img src="/img/car-png-39071.png" alt="" class="img-responsive"/>
                     </div>
                 </div>
             </div>
@@ -98,46 +98,9 @@
             <div class="container">
                 <h2>Latest Added Cars</h2>
                 <div class="car-items-listing">
-                    <x-card
-                        image-src="/img/cars/Lexus-RX200t-2016/1.jpeg"
-                        city="New Jersey"
-                        name="2016 - Lexus RX200t"
-                        price="$25,000"
-                        badge1="SUV"
-                        badge2="Electric"
-                    />
-                    <x-card
-                        image-src="/img/cars/Lexus-RX200t-2016/1.jpeg"
-                        city="New Jersey"
-                        name="2016 - Lexus RX200t"
-                        price="$25,000"
-                        badge1="SUV"
-                        badge2="Electric"
-                    />
-                    <x-card
-                        image-src="/img/cars/Lexus-RX200t-2016/1.jpeg"
-                        city="New Jersey"
-                        name="2016 - Lexus RX200t"
-                        price="$25,000"
-                        badge1="SUV"
-                        badge2="Electric"
-                    />
-                    <x-card
-                        image-src="/img/cars/Lexus-RX200t-2016/1.jpeg"
-                        city="New Jersey"
-                        name="2016 - Lexus RX200t"
-                        price="$25,000"
-                        badge1="SUV"
-                        badge2="Electric"
-                    />
-                    <x-card
-                        image-src="/img/cars/Lexus-RX200t-2016/1.jpeg"
-                        city="New Jersey"
-                        name="2016 - Lexus RX200t"
-                        price="$25,000"
-                        badge1="SUV"
-                        badge2="Electric"
-                    />
+                    @foreach($cars as $car)
+                        <x-card :$car/>
+                    @endforeach
                 </div>
             </div>
         </section>

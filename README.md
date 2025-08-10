@@ -27,6 +27,12 @@ http://localhost/
 If you see 502 Error, just wait for full startup
 
 # Dev
+## create fake data
+drop/recreate database, call migrationscript and dataseeder 
+```
+make fresh-seed
+```
+
 ## dumping variables
 ### dump
 ```

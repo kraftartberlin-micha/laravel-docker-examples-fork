@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -12,9 +13,14 @@ class CarController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return View::make('car.index');
+        $cars = User::find(1)->cars()
+            ->with(['primaryImage', 'city', 'carType', 'fuelType', 'maker', 'model', 'owner'])
+            ->orderBy('created_at', 'desc')
+            ->paginate(15);
+
+        return View::make('car.index', ['cars' => $cars]);
     }
 
     /**
@@ -37,7 +43,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        return View::make('car.show');
+        return View::make('car.show', ['car' => $car]);
     }
 
     /**
@@ -66,6 +72,19 @@ class CarController extends Controller
 
     public function search()
     {
-        return View::make('car.search');
+        $query = Car::where('published_at', '<', now())->orderBy('published_at', 'desc')
+            ->with(['primaryImage', 'city', 'carType', 'fuelType', 'maker', 'model', 'owner']);
+
+        $cars = $query->paginate(15)->withQueryString();
+
+        return View::make('car.search', ['cars' => $cars]);
+    }
+
+    public function watchlist(){
+
+        $cars =  User::find(2)->favCars()
+            ->with(['primaryImage', 'city', 'carType', 'fuelType', 'maker', 'model', 'owner'])->paginate(15);
+
+        return View::make('car.watchlist', ['cars' => $cars]);
     }
 }

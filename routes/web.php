@@ -13,5 +13,6 @@ Route::get('/signup', [SignupController::class, 'signup'])->name('signup');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/car/search', [CarController::class, 'search'])->name('car.search');
+Route::get('/car/watchlist', [CarController::class, 'watchlist'])->name('car.watchlist');
 Route::resource('car', CarController::class);
 

@@ -72,6 +72,10 @@ class Car extends EloquentModelAlias
     {
         return $this->belongsTo(Model::class);
     }
+    public function maker(): BelongsTo
+    {
+        return $this->belongsTo(Maker::class, 'maker_id');
+    }
     public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');

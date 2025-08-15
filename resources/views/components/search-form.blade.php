@@ -4,7 +4,7 @@
     <div class="container">
         <form
             action="{{ route('car.search') }}"
-            method="get"
+            method="GET"
             class="find-a-car-form card flex p-medium"
         >
             <div class="find-a-car-inputs">

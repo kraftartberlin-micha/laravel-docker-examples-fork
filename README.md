@@ -51,6 +51,16 @@ you can define route with views, controllers/actions or closures
 ```make routelist```
 
 
+# next tasks
+- enable filters
+- enable sorting
+- saving data in db (create/update/delete users, cars & watchlist)
+- enable login, register, manage cars, watchlist
+- create profile page to change email or delete profil
+- enable google & facebook login (api)
+- use react
+- ..
+
 thanks to
 
 The Codeholic - laravel 12 course

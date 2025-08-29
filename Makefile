@@ -2,6 +2,8 @@ init:
 	docker compose -f compose.dev.yaml down
 	docker compose -f compose.dev.yaml build --no-cache
 	$(MAKE) startup
+	$(MAKE) composer
+	npm install
 	$(MAKE) env
 	$(MAKE) cache_clear
 	$(MAKE) cache
@@ -18,6 +20,9 @@ env:
 	cp .env.example .env
 	docker compose -f compose.dev.yaml exec workspace php artisan key:generate
 	$(MAKE) startup #restart for loading changed sys env
+
+composer:
+	docker compose -f compose.dev.yaml exec workspace composer install
 
 cache:
 	docker compose -f compose.dev.yaml exec workspace php artisan config:cache
